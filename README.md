@@ -7,17 +7,17 @@ You will find here information on how to get started with our challenge. please 
 * Microsoft Section for anything on the bot framework, the cognitive services or Azure in general
 * Misc section for projects showing complete connection between the two
 
-## ABB
+# ABB
 
-# How to interact with the YuMi?
+## How to interact with the YuMi?
 
-## Microsoft
+# Microsoft
 
-# Get the documentation of the Cognitive Services
+## Get the documentation of the Cognitive Services
 
-# Microsoft Bot Services
+## Microsoft Bot Services
 
-# Azure
+## Azure
 
-## Misc
+# Misc
 
