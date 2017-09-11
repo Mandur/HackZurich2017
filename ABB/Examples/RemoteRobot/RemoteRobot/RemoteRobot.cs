@@ -28,11 +28,10 @@ namespace RemoteRobotLib
 
         public async Task RunProcedure(string procedureName)
         {
-            await SetStringVariable("name", $"\"{procedureName}\"");
-            //await Task.Delay(1000);
-            await SetBoolVariable("start", true);
-            await WaitForBoolValue("start", false);
-            await WaitForBoolValue("running", false);
+            await SetStringVariable("stName", $"\"{procedureName}\"");
+            await SetBoolVariable("bStart", true);
+            await WaitForBoolValue("bStart", false);
+            await WaitForBoolValue("bRunning", false);
         }
 
         async Task WaitForBoolValue(string name, bool value)
