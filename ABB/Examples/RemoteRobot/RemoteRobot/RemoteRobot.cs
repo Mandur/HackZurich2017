@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,19 +10,25 @@ using Newtonsoft.Json.Linq;
 
 namespace RemoteRobotLib
 {
-    public class RemoteRobot
+    public class RemoteRobotTask
     {
-        readonly string _url;
+        readonly string _hostname;
         readonly HttpClient _client;
         readonly string _taskName;
 
         const string ModuleName = "Remote";
 
-        public RemoteRobot(string url, string taskName, HttpClient client)
+        public RemoteRobotTask(string hostname, string taskName, HttpClient client)
         {
-            _url = url;
+            _hostname = hostname;
             _taskName = taskName;
             _client = client;
+        }
+
+        public async Task Init()
+        {
+            await WaitForBoolValue("bStart", false);
+            await WaitForBoolValue("bRunning", false);
         }
 
         public async Task RunProcedure(string procedureName)
@@ -38,19 +43,17 @@ namespace RemoteRobotLib
         {
             // Setting up subscriptions requires a websocket connection.
             // Let's use polling for now
-            Debug.Write("Waiting");
             while (await GetBoolVariable(name) != value)
             {
                 await Task.Delay(100);
-                Debug.Write(".");
             }
-            Debug.WriteLine("");
         }
 
         async Task<bool> GetBoolVariable(string name)
         {
-            string urlString = $"http://{_url}/rw/rapid/symbol/data/RAPID/{_taskName}/{ModuleName}/{name}?json=1";
+            string urlString = $"http://{_hostname}/rw/rapid/symbol/data/RAPID/{_taskName}/{ModuleName}/{name}?json=1";
             var response = await _client.GetAsync(urlString);
+            response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
             JObject json = JObject.Parse(content);
             string value= json["_embedded"]["_state"][0]["value"].ToString();
@@ -69,12 +72,10 @@ namespace RemoteRobotLib
                 {"value", value },
             };
             var content = new FormUrlEncodedContent(values);
-            string urlString = $"http://{_url}/rw/rapid/symbol/data/RAPID/{_taskName}/{ModuleName}/{name}?action=set";
+            string urlString = $"http://{_hostname}/rw/rapid/symbol/data/RAPID/{_taskName}/{ModuleName}/{name}?action=set";
             var response = await _client.PostAsync(urlString, content);
+            response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
-
-            Debug.Print($"Status: {response.StatusCode}");
-            Debug.Print(responseString);
         }
 
         string GetBoolString(bool value)
