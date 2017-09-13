@@ -23,7 +23,7 @@ Drop at the Microsoft booth to get your free Azure Voucher!
 ## How to interact with the YuMi?
 TODO ABB Ppl
 
-##What if I am stuck?
+## What if I am stuck?
 Reach out to us! Due to the wide range of technologies allowed by this challenge we are not sure to be able to always help out, but we will try our best!
 
 
