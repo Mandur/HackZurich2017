@@ -11,6 +11,13 @@ Here is how the repo is organized:
 
 Here below a few FAQs
 
+## What is exactly the challenge?
+The challenge is to animate the YuMi Robot and enable it to do some cool stuff using the Microsoft Azure Cloud. The definition of "cool stuff" is totally based on your interpretation! Let room to your creativity!
+You can use ABB's predefined gestures or create new ones to best fit your challenge and you can use any of Azure Services.
+Here are the minimum criterias to be considered as winner of our challenge:
+* Making at least a gesture on the YuMi
+* Using at least one Azure Service in your solution
+
 ## How can program without the YuMi?
 Don't worry, we have an emulator for you with preprogrammed gestures you can try! You have three options:
 * Come to our booth to get your RobotStudio on a flash drive (Only for Windows)
