@@ -15,7 +15,7 @@ The cognitives services are a set of REST API enabling features such as vision, 
 Add conversational intelligence to your apps easily!
 * [Main Page](https://www.luis.ai/)
 * [Get Started](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/home)
-* [Tutorial using Python] (https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/03/29/getting-started-using-microsoft-project-oxford-language-understanding-intelligent-service-luis-3-2/) 
+* [Tutorial using Python](https://blogs.msdn.microsoft.com/uk_faculty_connection/2016/03/29/getting-started-using-microsoft-project-oxford-language-understanding-intelligent-service-luis-3-2/) 
 * [SDK Windows](https://github.com/Microsoft/Cognitive-LUIS-Windows)
 * [SDK Node](https://github.com/Microsoft/Cognitive-LUIS-Node.js)
 * [SDK Python](https://github.com/Microsoft/Cognitive-LUIS-Python)
