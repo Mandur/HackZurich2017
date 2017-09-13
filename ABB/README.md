@@ -8,4 +8,18 @@ Robotstudio will listen port 80 fro inbound HTTP traffic as soon as it is starte
     * [System.Net.Http.HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.118).aspx) For C# and WinForms, WPF,... . [Example](Examples/RemoteRobot)
 
 # Triggering motion with RobotStudio
-TODO 
+The default gesture already configured in RobotStudio are the following: 
+    * Home 
+    * Contempt
+    * Kiss
+    * No Clue
+    * Hands Up
+    * Suprised
+    * To Diss
+    * Anger
+    * Excited
+    * Give Me A Hug
+    * Go Away
+    * Happy
+    * Powerfull
+    * Scared

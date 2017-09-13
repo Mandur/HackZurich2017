@@ -18,7 +18,7 @@ Here are the minimum criterias to be considered as winner of our challenge:
 * Making at least a gesture on the YuMi
 * Using at least one Azure Service in your solution
 
-## How can program without the YuMi?
+## How can I test my code without the YuMi?
 Don't worry, we have an emulator for you with preprogrammed gestures you can try! You have three options:
 * Come to our booth to get your RobotStudio on a flash drive (Only for Windows)
 * Instantiate a preconfigured VM running RobotStudio (TODO tutorial). You will then be able to reach it from any platform!
