@@ -9,7 +9,7 @@ Robotstudio will listen port 80 fro inbound HTTP traffic as soon as it is starte
 
 # Triggering motion with RobotStudio
 The default gesture already configured in RobotStudio are the following: 
-    * Home 
+* Home 
     * Contempt
     * Kiss
     * No Clue
