@@ -6,25 +6,20 @@ function start() {
     var context = canvas.getContext('2d');
 
     //get Emotion every two seconds
-    window.setInterval(function(){
+    window.setInterval(function () {
         getEmotion();
-    },2000);
-
-
+    }, 2000);
     var tracker = new tracking.ObjectTracker('face');
     tracker.setInitialScale(4);
     tracker.setStepSize(2);
     tracker.setEdgesDensity(0.1);
-
     tracking.track('#video', tracker, { camera: true });
-
-
     //offline Library
     tracker.on('track', function (event) {
-         context.clearRect(0, 0, canvas.width, canvas.height);
-        var i =0;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        var i = 0;
         event.data.forEach(function (rect) {
-            context.strokeStyle =  emotionResults[i];
+            context.strokeStyle = emotionResults[i];
             context.strokeRect(rect.x, rect.y, rect.width, rect.height);
             context.font = '11px Helvetica';
             context.fillStyle = "#fff";
@@ -58,7 +53,7 @@ function sumObjectsByKey() {
 
 //function that evaluate emotion of each faces and draw it to the screen
 function drawFaces(canvas, context, faces) {
-    
+
     context.clearRect(0, 0, canvas.width, canvas.height);
     var result = findDominantEmotion(faces.scores);
     console.log(result);
@@ -88,27 +83,20 @@ function drawFaces(canvas, context, faces) {
         case 'surprise':
             color = "#9932CC";
             break;
-
-
             emotionResults.push(color);
-
     }
     //get the face rectangle to draw
     var faceRect = faces.faceRectangle;
-
     context.strokeStyle = color;
     context.strokeRect(faceRect.left, faceRect.top, faceRect.height, faceRect.width);
     moveRobot('right', 'wavehigh');
-
-
 }
 
+//function to get the emotion present in a picture
 function getEmotion() {
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
-
-
     var frame = captureVideoFrame('video', 'png');
     var apiKey = "[Your API Key]";
     var request = new XMLHttpRequest();
@@ -116,21 +104,19 @@ function getEmotion() {
     request.setRequestHeader("Content-Type", "application/octet-stream");
     request.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
     request.send(frame.blob);
-
-
+    //triggered when we receive an answer
     request.onreadystatechange = function () {
         if (request.readyState == XMLHttpRequest.DONE) {
             var answer = JSON.parse(request.responseText);
             //reset the emotion List
-            emotionList=[];
+            emotionList = [];
             answer.forEach(function (faces) {
-              
-                
+                //draw the face on the canva             
                 drawFaces(canvas, context, faces);
-
                 //get the emotions of all the persons present and put them in an array
                 var totalEmotion = sumObjectsByKey(faces.scores);
-
+                //find the dominant emotion across all the emotions of the picture
+                //Then trigger the robot to move accordingly
                 var dominant = findDominantEmotion(totalEmotion);
                 switch (dominant) {
                     case 'anger':
@@ -166,7 +152,6 @@ function getEmotion() {
                         moveRobot("left", "anger");
                         break;
                 }
-
             }, this);
         }
     }
@@ -176,7 +161,6 @@ function getEmotion() {
 //function handling communication with the REST API and the robot
 function moveRobot(arm, action) {
     var request = require('request')
-
     var url = "[Robot IP Adress]/rw";
     if (arm.toLowerCase().indexOf("right") != -1) {
         arm = "T_ROB_R"
@@ -195,7 +179,7 @@ function moveRobot(arm, action) {
                 { form: { value: 'true' } },
                 function (error, response, body) {
                     var boolean = false;
-               // ping  the server
+                    // ping  the server
                 }).auth('Default User', 'robotics', false);
         }).auth('Default User', 'robotics', false);
 
