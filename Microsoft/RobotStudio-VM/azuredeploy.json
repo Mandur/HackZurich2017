@@ -42,7 +42,7 @@
         "scriptFolder": ".",
         "scriptFileName": "SetUpVm.ps1",
         "fileToBeCopied": "FileToBeCopied.txt",
-        "scriptParameters": "[concat('-artifactsLocation ', parameters('_artifactsLocation'), ' -artifactsLocationSasToken \"', parameters('_artifactsLocationSasToken'), '\" -folderName ', variables('scriptFolder'), ' -fileToInstall ', variables('fileToBeCopied'))]"
+        "scriptParameters": "[concat('-artifactsLocation ', parameters('_artifactsLocation'), ' -artifactsLocationSasToken \"', parameters('_artifactsLocationSasToken'), '\" -folderName ', variables('scriptFolder'), ' -fileToInstall ', variables('fileToBeCopied'), '\" -vmAdminUsername ', parameters('adminUsername'), '\" -vmAdminPassword ', parameters('adminPassword')]"
     },
     "resources": [
         {

@@ -1,4 +1,22 @@
-﻿try
+﻿
+param (
+  $vmAdminUsername,
+  $vmAdminPassword
+)
+ 
+$password =  ConvertTo-SecureString $vmAdminPassword -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential("$env:USERDOMAIN\$vmAdminUsername", $password)
+ 
+Write-Verbose -Verbose "Entering Custom Script Extension..."
+ 
+Invoke-Command -Credential $credential -ComputerName $env:COMPUTERNAME -ArgumentList $PSScriptRoot -ScriptBlock {
+  param 
+  (
+    $workingDir
+  )
+ 
+
+try
 {
   #Verify if PowerShellGet module is installed. If not install
   if (!(Get-Module -Name PowerShellGet))
@@ -27,4 +45,5 @@
 catch
 {
     Write-Output "Oops. Something failed"
+}
 }
