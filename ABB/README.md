@@ -25,7 +25,7 @@ The VC will listen on port 80 for inbound HTTP traffic as soon as it is started.
   ## [PythonRobot](https://github.com/Mandur/HackZurich2017/tree/master/ABB/Examples/PythonRobot) (Python)
   A python example to get some communication set up with the robot.
   
-There are also complete examples in [UWP](https://github.com/Mandur/HackZurich2017/tree/master/Misc/UWP_C%23) and [JS](https://github.com/Mandur/HackZurich2017/tree/master/Misc/Javascript_Electron) that connect a robot with the Azure cloud services.
+There are also complete examples for [UWP](https://github.com/Mandur/HackZurich2017/tree/master/Misc/UWP_C%23) and in [JS](https://github.com/Mandur/HackZurich2017/tree/master/Misc/Javascript_Electron) that connect a robot with the Azure cloud services.
 
 # Triggering motion with RobotStudio
 The default gesture already configured in the robot are the following: 
