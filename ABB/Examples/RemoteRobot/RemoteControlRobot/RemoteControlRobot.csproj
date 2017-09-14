@@ -49,7 +49,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RemoteRobot\RemoteRobotLib.csproj">
+    <ProjectReference Include="..\RemoteRobotLib\RemoteRobotLib.csproj">
       <Project>{e052c113-61a8-4d9c-8a74-cfbc6036e459}</Project>
       <Name>RemoteRobotLib</Name>
     </ProjectReference>
