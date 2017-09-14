@@ -7,7 +7,7 @@ RobotStudio is a simulation and programming tool for robots. For each virtual ro
 To run RobotStudio in a virtual machine you will need a license key. Come to our booth and we will provide you with one.
 
 # Robot Web Services
-Robot Web Services is an HTTP based service for controlling a robot. You will use it to control both virtual and real robots.
+Robot Web Services is an HTTP based API for controlling robots. You will use it to control both virtual and real robots.
 
    * [API Reference](http://developercenter.robotstudio.com/blobproxy/devcenter/Robot_Web_Services/html/index.html)
 
@@ -18,6 +18,14 @@ The VC will listen on port 80 for inbound HTTP traffic as soon as it is started.
     * [Request](https://www.npmjs.com/package/request) in Node.js [Example](../Misc/Javascript_Electron)
     * [Windows.Web.Http.HttpClient](https://docs.microsoft.com/en-us/uwp/api/windows.web.http.httpclient) for C# Windows Store Application [Example](../Misc/UWP_C#)
     * [System.Net.Http.HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.118).aspx) For C# and WinForms, WPF,... . [Example](Examples/RemoteRobot)
+
+# Examples
+  ## [RemoteRobot](https://github.com/Mandur/HackZurich2017/tree/master/ABB/Examples/RemoteRobot) (C#)
+  A C# example with some (hopefully) reusable code.
+  ## [PythonRobot](https://github.com/Mandur/HackZurich2017/tree/master/ABB/Examples/PythonRobot) (Python)
+  A python example to get some communication set up with the robot.
+  
+There are also complete examples in [UWP](https://github.com/Mandur/HackZurich2017/tree/master/Misc/UWP_C%23) and [JS](https://github.com/Mandur/HackZurich2017/tree/master/Misc/Javascript_Electron) that connect a robot with the Azure cloud services.
 
 # Triggering motion with RobotStudio
 The default gesture already configured in the robot are the following: 
