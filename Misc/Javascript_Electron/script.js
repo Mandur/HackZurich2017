@@ -132,7 +132,40 @@ function getEmotion() {
                 var totalEmotion = sumObjectsByKey(faces.scores);
 
                 var dominant = findDominantEmotion(totalEmotion);
-
+                switch (dominant) {
+                    case 'anger':
+                        moveRobot("right", "anger");
+                        moveRobot("left", "anger");
+                        break;
+                    case 'neutral':
+                        moveRobot("right", "No clue");
+                        moveRobot("left", "No clue");
+                        break;
+                    case 'contempt':
+                        moveRobot("right", "anger");
+                        moveRobot("left", "anger");
+                        break;
+                    case 'disgust':
+                        moveRobot("right", "anger");
+                        moveRobot("left", "anger");
+                        break;
+                    case 'fear':
+                        moveRobot("right", "anger");
+                        moveRobot("left", "anger");
+                        break;
+                    case 'happiness':
+                        moveRobot("right", "anger");
+                        moveRobot("left", "anger");
+                        break;
+                    case 'sadness':
+                        moveRobot("right", "anger");
+                        moveRobot("left", "anger");
+                        break;
+                    case 'surprise':
+                        moveRobot("right", "anger");
+                        moveRobot("left", "anger");
+                        break;
+                }
 
             }, this);
         }

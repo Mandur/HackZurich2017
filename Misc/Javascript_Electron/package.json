@@ -13,8 +13,7 @@
   "author": "Mikhail Chatillon",
   "license": "ISC",
   "dependencies": {
-    "capture-video-frame": "^0.1.2",
-    "electron": "^1.7.5",
+     "electron": "^1.7.5",
     "request": "^2.81.0",
     "request-debug": "^0.2.0",
     "request-promise-native": "^1.0.4"

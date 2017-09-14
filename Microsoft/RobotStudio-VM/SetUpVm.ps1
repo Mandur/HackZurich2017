@@ -8,9 +8,9 @@
       Invoke-WebRequest 'https://raw.githubusercontent.com/Mandur/HackZurich2017/master/ABB/RobotStudio/HackZurich.rspag' -OutFile $([Environment]::GetFolderPath("Desktop") +'\HackZurich.rspag')
       Invoke-WebRequest 'https://raw.githubusercontent.com/Mandur/HackZurich2017/master/Microsoft/RobotStudio-VM/vcconf.xml' -OutFile $([Environment]::GetFolderPath("Desktop") +'\vcconf.xml') 
 
-      Invoke-WebRequest 'http://cdn.robotstudio.com/install/RobotStudio_6.05.02.zip' -OutFile 'c:\RobotStudio\RobotStudio_6.05.02.zip'
-      expand-archive -path 'C:\RobotStudio\RobotStudio_6.05.02.zip' -destinationpath 'c:\RobotStudio'
-      Start-Process 'C:\RobotStudio\ABB RobotStudio 6.05.02.msi' -ArgumentList "/qn /a" -Wait
+      Invoke-WebRequest 'http://cdn.robotstudio.com/install/RobotStudio_6.05.02.zip' -OutFile $([Environment]::GetFolderPath("Desktop") +'\RobotStudio_6.05.02.zip')
+      expand-archive -path $([Environment]::GetFolderPath("Desktop") +'\RobotStudio_6.05.02.zip') -destinationpath $([Environment]::GetFolderPath("Desktop"))
+      Start-Process $([Environment]::GetFolderPath("Desktop")+'ABB RobotStudio 6.05.02.msi') -ArgumentList "/qn /a" -Wait
       Start-Process msiexec.exe -Wait -ArgumentList '/I C:\RobotStudio\ABB RobotStudio 6.05.02.msi /quiet'
         
   }
