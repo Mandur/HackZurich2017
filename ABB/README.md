@@ -6,6 +6,8 @@ RobotStudio is a simulation and programming tool for robots. For each virtual ro
    
 To run RobotStudio in a virtual machine you will need a license key. Come to our booth and we will provide you with one.
 
+Learn more about RobotStudio by looking at the [tutorial videos](http://new.abb.com/products/robotics/robotstudio/tutorials). Here you can find out how to create your own movements and gestures. Also, come by our booth and we will help you!
+
 # Robot Web Services
 Robot Web Services is an HTTP based API for controlling robots. You will use it to control both virtual and real robots.
 
