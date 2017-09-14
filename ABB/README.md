@@ -45,12 +45,13 @@ Start the Motor.
 
 ![alt text](image/8.png)
 
-Set the robot speed. Open the quick lunch menu by pressing the ![alt text](image/12.png)  Button and open the Speed panel by pressing ![alt text](image/12.png)
-![alt text](image/13.png)
+Set the robot speed. Open the quick lunch menu by pressing the ![alt text](image/12.png)  Button and open the Speed panel by pressing ![alt text](image/13.png)
+
+![alt text](image/9.png)
 
 Now press the play button at the FlexPendant.
 
-![alt text](image/9.png)
+![alt text](image/10.png)
 
 
 # Robot Web Services
