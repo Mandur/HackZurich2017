@@ -6,7 +6,6 @@
 
       netsh advfirewall firewall add rule name="Open Port 80" dir=in action=allow protocol=TCP localport=80
       New-Item $($env:TEMP  +'\HackZurich') -type directory
-      Invoke-WebRequest 'https://raw.githubusercontent.com/Mandur/HackZurich2017/master/ABB/RobotStudio/HackZurich.rspag' -OutFile $([Environment]::GetFolderPath("Desktop") +'\HackZurich\HackZurich.rspag')
       Invoke-WebRequest 'https://raw.githubusercontent.com/Mandur/HackZurich2017/master/Microsoft/RobotStudio-VM/vcconf.xml' -OutFile $([Environment]::GetFolderPath("Desktop")+'\HackZurich\vcconf.xml') 
       Add-WindowsCapability –Online -Name NetFx3~~~~ –Source D:\sources\sxs
       Invoke-WebRequest 'http://cdn.robotstudio.com/install/RobotStudio_6.05.02.zip' -OutFile $($env:TEMP +'\HackZurich\RobotStudio_6.05.02.zip')
