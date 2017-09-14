@@ -1,5 +1,6 @@
 ﻿try
 {
+    Add-WindowsCapability –Online -Name NetFx3~~~~ –Source D:\sources\sxs
   #Verify if PowerShellGet module is installed. If not install
   if (!(Get-Module -Name PowerShellGet))
   {
