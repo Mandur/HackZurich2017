@@ -12,32 +12,52 @@ namespace RemoteControlRobot
     {
         static void Main(string[] args)
         {
-            //string url = "192.168.54.108";
-            string hostname = "localhost";
-            var httpClient = RobotClientProvider.GetHttpClientAsync(hostname).Result;
-            var rightArm = new RemoteRobotTask(hostname, "T_ROB_R", httpClient);
-            var leftArm = new RemoteRobotTask(hostname, "T_ROB_L", httpClient);
+            try
+            {
+                //RunWithPcp().Wait();
+                RunWithRunLoop().Wait();
 
-            leftArm.Init().Wait();
-            rightArm.Init().Wait();
-
-            Console.WriteLine("Resetting to home position.");
-
-            Task.WhenAll(
-                rightArm.RunProcedure("Home"),
-                leftArm.RunProcedure("Home"))
-                .Wait();
-            
-            Console.WriteLine("Executing gestures.");
-
-            Task.WhenAll(
-                rightArm.RunProcedure("NoClue"),
-                leftArm.RunProcedure("NoClue"))
-                .Wait();
-
-            Console.WriteLine("Done.");
-
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
             Console.ReadKey();
         }
+
+        static async Task RunWithPcp()
+        {
+            string hostname = "localhost";
+            var httpClient = await RobotClientProvider.GetHttpClientAsync(hostname);
+            var yumi = new RemoteYumi(hostname, httpClient);
+            await yumi.LeftArm.SetPPToRoutine("Gestures","NoClue");
+            await yumi.RightArm.SetPPToRoutine("Gestures", "NoClue");
+            await yumi.StartExecution();
+        }
+
+
+        static async Task RunWithRunLoop()
+        {
+            string hostname = "localhost";
+            var httpClient = await RobotClientProvider.GetHttpClientAsync(hostname);
+            var yumi = new RemoteYumi(hostname, httpClient);
+
+            await yumi.Init();
+
+            Console.WriteLine("Resetting to home position.");
+            await yumi.RunProcedureForBothArms("Home");
+            Console.WriteLine("Executing gestures.");
+            await yumi.RunProcedureForBothArms("NoClue");
+            Console.WriteLine("Done.");
+        }
+
+        static async Task PrintExecutionActions()
+        {
+            string hostname = "localhost";
+            var httpClient = await RobotClientProvider.GetHttpClientAsync(hostname);
+            var yumi = new RemoteYumi(hostname, httpClient);
+            await yumi.PrintExecutionActions();
+        }
+
     }
 }

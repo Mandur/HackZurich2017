@@ -7,7 +7,7 @@
     <ProjectGuid>{E052C113-61A8-4D9C-8A74-CFBC6036E459}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RemoteRobot</RootNamespace>
+    <RootNamespace>RemoteRobotLib</RootNamespace>
     <AssemblyName>RemoteRobotLib</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RemoteRobot.cs" />
+    <Compile Include="RemoteYumi.cs" />
+    <Compile Include="RemoteRobotTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RobotClientProvider.cs" />
   </ItemGroup>

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteControlRobot", "RemoteControlRobot\RemoteControlRobot.csproj", "{6B57F170-E481-405F-849B-B5ED8B8F67F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteRobotLib", "RemoteRobot\RemoteRobotLib.csproj", "{E052C113-61A8-4D9C-8A74-CFBC6036E459}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteRobotLib", "RemoteRobotLib\RemoteRobotLib.csproj", "{E052C113-61A8-4D9C-8A74-CFBC6036E459}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -39,6 +39,24 @@ namespace RemoteRobotLib
             await WaitForBoolValue("bRunning", false);
         }
 
+        public async Task SetPPToRoutine(string moduleName, string routineName)
+        {
+            string url = $"http://{_hostname}/rw/rapid/tasks/{_taskName}/pcp?action=set-pp-routine";
+            var parameters = new Dictionary<string, string>
+            {
+                {"module", moduleName },
+                {"routine", routineName },
+                //{"userlevel", "false"},
+            };
+            var content = new FormUrlEncodedContent(parameters);
+            var response = await _client.PostAsync(url, content);
+            if (!response.IsSuccessStatusCode)
+            {
+                Console.WriteLine(await response.Content.ReadAsStringAsync());
+            }
+            response.EnsureSuccessStatusCode();
+        }
+
         async Task WaitForBoolValue(string name, bool value)
         {
             // Setting up subscriptions requires a websocket connection.
@@ -67,17 +85,15 @@ namespace RemoteRobotLib
 
         async Task SetStringVariable(string name, string value)
         {
-            var values = new Dictionary<string, string>
+            var parameters = new Dictionary<string, string>
             {
                 {"value", value },
             };
-            var content = new FormUrlEncodedContent(values);
+            var content = new FormUrlEncodedContent(parameters);
             string urlString = $"http://{_hostname}/rw/rapid/symbol/data/RAPID/{_taskName}/{ModuleName}/{name}?action=set";
             var response = await _client.PostAsync(urlString, content);
             response.EnsureSuccessStatusCode();
-            var responseString = await response.Content.ReadAsStringAsync();
         }
-
         string GetBoolString(bool value)
         {
             return value ? "TRUE" : "FALSE";
@@ -98,6 +114,5 @@ namespace RemoteRobotLib
                 throw new Exception("Unexpected bool value");
             }
         }
-
     }
 }
