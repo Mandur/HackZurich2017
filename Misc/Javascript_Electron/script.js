@@ -26,11 +26,6 @@ function start() {
             i++;
         });
     });
-
-
-
-
-
 }
 
 //This function takes the total emotion present on an image
@@ -89,7 +84,7 @@ function drawFaces(canvas, context, faces) {
     var faceRect = faces.faceRectangle;
     context.strokeStyle = color;
     context.strokeRect(faceRect.left, faceRect.top, faceRect.height, faceRect.width);
-    moveRobot('right', 'wavehigh');
+
 }
 
 //function to get the emotion present in a picture
