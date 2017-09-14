@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="stuff, to, help, search, engines, not" name="keywords">
+    <meta content="What this page is about." name="description">
+    <meta content="Display Webcam Stream" name="title">
+    <title>Display Webcam Stream</title>
+
+
+   <style>
+       #container{
+           position: relative
+       }
+      
+       #container>canvas {
+           position: absolute;
+           left:0;
+           top:0;
+       }
+     
+
+       </style>
+
+    <!-- allow import within electron (https://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined)-->
+    <script>
+        if (typeof module === 'object') { window.module = module; module = undefined; }
+    </script>
+
+    <script src="bower_components/tracking/build/tracking-min.js"></script>
+    <script src="bower_components/tracking/build/data/face-min.js"></script>
+    <script src="bower_components/dat-gui/build/dat.gui.min.js"></script>
+    <script src="node_modules/capture-video-frame/capture-video-frame.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body onload="start()">
+    <div id="container">
+
+
+            <canvas  width="640" height="480" id="canvas" ></canvas>
+
+            <video width="640" height="480" id="video" preload autoplay loop muted ></video> 
+         
+
+    </div>
+
+
+</body>
+
+</html>
