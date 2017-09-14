@@ -12,9 +12,11 @@ Learn more about RobotStudio by looking at the [tutorial videos](http://new.abb.
 Double click on the RobotStudio Pack&Go file HackZurich.rspag.
 
 ![alt text](image/1.png)
+
 Follow the instructions in the installation wizard.
 
 ![alt text](image/2.png)
+
 After the installation, the virtual robot should appear.
 
 ![alt text](image/3.png)
@@ -25,6 +27,7 @@ Open RobotStudio and start the station HackZurich.rsstn if it’s not already st
 Wait until the virtual controller is completely started. The controller state status at the bottom should be green.
 
 ![alt text](image/4.png)
+
 Change to the Simulation Slide and start the simulation by pressing Play.
 
 ![alt text](image/5.png)
@@ -33,6 +36,7 @@ Change to the Simulation Slide and start the simulation by pressing Play.
 Take the FlexPendant and set the Program Pointer to main in the Production window.
 
 ![alt text](image/6.png)
+
 Change the robot state to automatic mode. Open the quick launch menu by pressing the ![alt text](image/12.png) Button and open the Operator panel by pressing ![alt text](image/11.png).
 
 ![alt text](image/7.png)
