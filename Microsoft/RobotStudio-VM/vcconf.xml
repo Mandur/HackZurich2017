@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VCConfiguration>
+	<RemoteVCConfiguration PublicationEnabled="true" />
+	<hosts>
+		<host ip="[Your IP Adress]"/>
+
+	</hosts>
+</VCConfiguration>
+<!--copy this to C:\Users\[Enter your username]\AppData\Roaming\ABB Industrial IT\Robotics IT\RobVC')-->
