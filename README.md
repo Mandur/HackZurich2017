@@ -21,14 +21,14 @@ Here are the minimum criterias to be considered as winner of our challenge:
 ## How can I test my code without the YuMi?
 Don't worry, we have an emulator for you with preprogrammed gestures you can try! You have three options:
 * Come to our booth to get your RobotStudio on a flash drive (Only for Windows).
-* Instantiate a preconfigured VM running RobotStudio (TODO tutorial). You will then be able to reach it from any platform!
-* Download it directly [here](http://new.abb.com/products/robotics/robotstudio/downloads).
+* Instantiate a [preconfigured VM running RobotStudio](Microsoft/RobotStudio-VM).  You will then be able to reach it from any platform!
+* Download it directly [here](http://new.abb.com/products/robotics/robotstudio/downloads) and import manually the rspag file describing the robot [here](ABB/RobotStudio). 
 
 ## How do I get my free Azure Access?
 Drop at the Microsoft booth to get your free Azure Voucher!
 
 ## How to interact with the YuMi?
-TODO ABB Ppl
+[Check here](ABB)
 
 ## What if I am stuck?
 Reach out to us! Due to the wide range of technologies allowed by this challenge we are not sure to be able to always help out, but we will try our best!

@@ -8,6 +8,35 @@ To run RobotStudio in a virtual machine you will need a license key. Come to our
 
 Learn more about RobotStudio by looking at the [tutorial videos](http://new.abb.com/products/robotics/robotstudio/tutorials). Here you can find out how to create your own movements and gestures. Also, come by our booth and we will help you!
 
+##RobotStudio Pack&Go
+Double click on the RobotStudio Pack&Go file HackZurich.rspag.
+![alt text](image/1.png)
+Follow the instructions in the installation wizard.
+![alt text](image/2.png)
+After the installation, the virtual robot should appear.
+![alt text](image/3.png)
+
+##Starting the virtual robot
+Open RobotStudio and start the station HackZurich.rsstn if it’s not already started.
+
+Wait until the virtual controller is completely started. The controller state status at the bottom should be green.
+![alt text](image/4.png)
+Change to the Simulation Slide and start the simulation by pressing Play.
+![alt text](image/5.png)
+
+##Starting the real robot
+Take the FlexPendant and set the Program Pointer to main in the Production window.
+![alt text](image/6.png)
+Change the robot state to automatic mode. Open the quick launch menu by pressing the ![alt text](image/12.png) Button and open the Operator panel by pressing ![alt text](image/11.png).
+![alt text](image/7.png)
+Start the Motor.
+![alt text](image/8.png)
+Set the robot speed. Open the quick lunch menu by pressing the ![alt text](image/12.png)  Button and open the Speed panel by pressing ![alt text](image/12.png)
+![alt text](image/13.png)
+Now press the play button at the FlexPendant.
+![alt text](image/9.png)
+
+
 # Robot Web Services
 Robot Web Services is an HTTP based API for controlling robots. You will use it to control both virtual and real robots.
 
