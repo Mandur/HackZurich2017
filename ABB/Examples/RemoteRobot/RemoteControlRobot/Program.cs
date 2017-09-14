@@ -10,11 +10,15 @@ namespace RemoteControlRobot
 {
     class Program
     {
+        // Service port
+        const string hostname = "192.168.125.1";
+        //const string hostname = "localhost";
+
         static void Main(string[] args)
         {
             try
             {
-                //RunWithPcp().Wait();
+                //RunWithProgramPointer().Wait();
                 RunWithRunLoop().Wait();
 
             }
@@ -25,38 +29,27 @@ namespace RemoteControlRobot
             Console.ReadKey();
         }
 
-        static async Task RunWithPcp()
+        static async Task RunWithProgramPointer()
         {
-            string hostname = "localhost";
+            // Using this method to get the HttpClient ensures that we are already logged in to the
+            // robot when we try to send commands later.
             var httpClient = await RobotClientProvider.GetHttpClientAsync(hostname);
+            // The RemoteYumi class represents the whole robot.
             var yumi = new RemoteYumi(hostname, httpClient);
+            // We must set the program pointer to the routine we want to run for each arm.
             await yumi.LeftArm.SetPPToRoutine("Gestures","NoClue");
             await yumi.RightArm.SetPPToRoutine("Gestures", "NoClue");
+            // To actually get the robot to move the execution must be started.
             await yumi.StartExecution();
         }
 
-
         static async Task RunWithRunLoop()
         {
-            string hostname = "localhost";
             var httpClient = await RobotClientProvider.GetHttpClientAsync(hostname);
             var yumi = new RemoteYumi(hostname, httpClient);
 
             await yumi.Init();
-
-            Console.WriteLine("Resetting to home position.");
-            await yumi.RunProcedureForBothArms("Home");
-            Console.WriteLine("Executing gestures.");
             await yumi.RunProcedureForBothArms("NoClue");
-            Console.WriteLine("Done.");
-        }
-
-        static async Task PrintExecutionActions()
-        {
-            string hostname = "localhost";
-            var httpClient = await RobotClientProvider.GetHttpClientAsync(hostname);
-            var yumi = new RemoteYumi(hostname, httpClient);
-            await yumi.PrintExecutionActions();
         }
 
     }

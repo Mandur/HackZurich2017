@@ -23,19 +23,15 @@ namespace RemoteRobotLib
         public RemoteRobotTask LeftArm { get; }
         public RemoteRobotTask RightArm { get; }
 
+        /// <summary>
+        /// Runs the same procedure for both arms.
+        /// </summary>
+        /// <param name="procedureName">The name of the procdure.</param>
         public async Task RunProcedureForBothArms(string procedureName)
         {
-            var t1 = LeftArm.RunProcedure(procedureName);
-            var t2 = RightArm.RunProcedure(procedureName);
-            await Task.WhenAll(t1, t2);
-        }
-
-        public async Task PrintExecutionActions()
-        {
-
-            string url = $"http://{_hostname}/rw/rapid/execution?action=show&json=1";
-            var response = await _client.GetAsync(url);
-            Console.WriteLine(await response.Content.ReadAsStringAsync());
+            await Task.WhenAll(
+                LeftArm.RunProcedure(procedureName),
+                RightArm.RunProcedure(procedureName));
         }
 
         public async Task StartExecution()
@@ -61,7 +57,9 @@ namespace RemoteRobotLib
 
         public async Task Init()
         {
-            await Task.WhenAll(LeftArm.Init(), RightArm.Init());
+            await Task.WhenAll(
+                LeftArm.Init(), 
+                RightArm.Init());
         }
     }
 }
