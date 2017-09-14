@@ -1,0 +1,24 @@
+{
+  "name": "hackzurich2017",
+  "description": "Node demo project to show interaction between the Microsoft Cognitive Services and the ABB YuMi robot.",
+  "main": "index.js",
+  "authors": [
+    "Mikhail Chatillon"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "YuMi",
+    "Cognitive-Services"
+  ],
+  "homepage": "https://github.com/Mandur/HackZurich2017",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tracking": "tracking.js#^1.1.3"
+  }
+}
