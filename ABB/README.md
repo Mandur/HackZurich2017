@@ -10,7 +10,7 @@ If you want to run RobotStudio in your own virtual machine you will need a licen
 Learn more about RobotStudio by looking at the [tutorial videos](http://new.abb.com/products/robotics/robotstudio/tutorials). Here you can find out how to create your own movements and gestures. Also, come by our booth and we will help you!
 
 ## Get started with your Virtual YuMi
-Open the [HackZurich.rspag](https://github.com/Mandur/HackZurich2017/tree/master/ABB/RobotStudio) (in your Azure VM it will be on the desktop) using RobotStudio. Just select the default options in the wizard and your virtual YuMi will appear shortly.
+Open the [HackZurich.rspag](https://github.com/Mandur/HackZurich2017/tree/master/ABB/RobotStudio) using RobotStudio. Just select the default options in the wizard and your virtual YuMi will appear shortly.
 
 ![alt text](image/3.png)
 
