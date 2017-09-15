@@ -18,17 +18,15 @@ Here are the minimum criterias to be considered as winner of our challenge:
 * Making at least one gesture with the YuMi.
 * Using at least one Azure Service in your solution.
 
-## How can I test my code without the YuMi?
-Don't worry, we have an emulator for you with preprogrammed gestures you can try! You have three options:
-* Come to our booth to get your RobotStudio on a flash drive (Only for Windows).
-* Instantiate a [preconfigured VM running RobotStudio](Microsoft/RobotStudio-VM).  You will then be able to reach it from any platform!
-* Download it directly [here](http://new.abb.com/products/robotics/robotstudio/downloads) and import manually the rspag file describing the robot [here](ABB/RobotStudio). 
-
-## How do I get my free Azure Access?
-Drop at the Microsoft booth to get your free Azure Voucher!
-
-## How to interact with the YuMi?
-[Check here](ABB)
+## Getting Started
+1. [Get started with Azure](https://github.com/Mandur/HackZurich2017/tree/master/Microsoft). Get a free Azure voucher at the Microsoft booth.
+2. [Get started with RobotStudio](https://github.com/Mandur/HackZurich2017/tree/master/ABB). You will use RobotStudio to run a virtual robot. You can run it locally on your machine or in an Azure VM.
+3. Have a look at the examples of how to connect the robot to the Azure cloud:
+* [C#/Console](https://github.com/Mandur/HackZurich2017/tree/master/ABB/Examples/RemoteRobot), includes RemoteRobotLib which you can use as a starting point for your own robot code.
+* [Python](https://github.com/Mandur/HackZurich2017/tree/master/ABB/Examples/PythonRobot)
+* [C#/UWP](https://github.com/Mandur/HackZurich2017/tree/master/Misc/UWP_C%23)
+* [JS/Electron](https://github.com/Mandur/HackZurich2017/tree/master/Misc/Javascript_Electron)
+4. Create your own stuff. Good luck!
 
 ## What if I am stuck?
 Reach out to us! Due to the wide range of technologies allowed by this challenge we are not sure to be able to always help out, but we will try our best!
