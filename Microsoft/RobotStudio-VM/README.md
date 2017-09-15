@@ -10,4 +10,11 @@ Follow this few steps to get activated:
 </a>
 
 * Wait c.a. 20 minutes for the VM to install RobotStudio and perform all configuration steps. The deployment will be marked as 'failed' but it will work anyway
-* Connect to the Vm via RDP and follow the RobotStudio tutorials to get started! 
+* Connect to the Vm via RDP 
+* All the required files for the next steps are located on C:\Windows\Temp\HackZurich
+* Double click on the HackZurich.rspag file to extract the robot archive. Wait until it finish and save the the robot. 
+* Close RobotStudi
+* Edit the file vcconf.xml and insert your current IP adress 
+* Copy the file to C:\Users\[Your User Name]]\AppData\Roaming\ABB Industrial IT\Robotics IT\RobVC 
+* Start RobotStudio again
+* from your local computer go to http://[IP adress of the VM]/rw, log in with credentials "Default User" / "Robotics" (without "), if you see a list of dots on the screen you are good to go! If you see a RAPI error come to see us on the booth
