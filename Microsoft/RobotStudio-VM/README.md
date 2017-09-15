@@ -16,10 +16,10 @@ Follow this few steps to get activated:
 * All the required files for the next steps are located on C:\Windows\Temp\HackZurich
 * Double click on the HackZurich.rspag file to extract the robot archive. It will ask you for a license key, input the following one: 2C3JJ-RZPD7-LYFE3-V2S87-L5AFD . Wait until it finish and save the the robot. 
 * Close RobotStudio
-* Edit the file vcconf.xml and insert your current IP adress. use [This](https://whatismyipaddress.com/)
+* Edit the file vcconf.xml and insert **your current IP adress**. Use [this](https://whatismyipaddress.com/). (Yes we really mean the IP of the machine that will connect **to** the robot).
 * Copy the file to C:\Users\[Your User Name]]\AppData\Roaming\ABB Industrial IT\Robotics IT\RobVC 
 * Start RobotStudio again (the Station is saved in the recent tab)
-* from your local computer go to http://[IP adress of the VM]/rw, log in with credentials "Default User" / "Robotics" (without "), if you see a list of dots on the screen you are good to go! If you see a RAPI error come to see us on the booth
+* from your local computer go to http://[IP adress of the VM]/rw, log in with credentials "Default User" / "robotics" (without "), if you see a list of dots on the screen you are good to go! If you see a RAPI error come to see us on the booth
 
 
 **SHOULD YOU HAVE PROBLEMS, PLEASE FEEL FREE TO DROP BY THE BOOTH**
