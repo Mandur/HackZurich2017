@@ -25,9 +25,17 @@ Robot Web Services is an HTTP based API for controlling robots. You will use it 
 
    * [API Reference](http://developercenter.robotstudio.com/blobproxy/devcenter/Robot_Web_Services/html/index.html)
 
-## Connecting to the Virtual Controller
+The robot is preconfigured with a program which makes it execute gestures based on external commands. Each of the arms is running independently. They are represented by the tasks `T_ROB_L` and `T_ROB_R`. There are 4 steps to getting the robot to execute a gesture for one arm:
+1. Update the RAPID variable `Remote/stName` for the  with the quoted string name of the gestures you want to run.
+2. Set the bool `Remote/bStart` to `TRUE`.
+3. Wait for the `Remote/bStart` variable to become `FALSE`.
+4. Wait for the `Remote/bRunning` variable to become `FALSE`.
+
+Many gestures require both arms to move at the same time. In this case make sure to run steps 1. and 2. in parallell for both arms.
+
+### Connecting to the Virtual Controller
 The VC will listen on port 80 for inbound HTTP traffic as soon as it is started. It is possible to interact with it via this REST API. Few things to note:
-* The VC requires [Digest Authentication](https://en.wikipedia.org/wiki/Digest_access_authentication) from the users with a default username/password of 'Default User'/'robotics' (without ' marks). Following classes have been tested to work with this communication:
+* The VC requires [Digest Authentication](https://en.wikipedia.org/wiki/Digest_access_authentication) from the users with a default username `Default User` and password `robotics`. Following classes have been tested to work with this communication:
     * [Requests](http://docs.python-requests.org/en/master/#) in Python. [Simple Example](Examples/PythonRobot)
     * [Request](https://www.npmjs.com/package/request) in Node.js [Example](../Misc/Javascript_Electron)
     * [Windows.Web.Http.HttpClient](https://docs.microsoft.com/en-us/uwp/api/windows.web.http.httpclient) for C# Windows Store Application [Example](../Misc/UWP_C#)
