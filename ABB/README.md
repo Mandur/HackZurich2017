@@ -53,6 +53,20 @@ There are also complete examples for [UWP](https://github.com/Mandur/HackZurich2
 
 For programming the real robot see the [detailed instructions](https://github.com/Mandur/HackZurich2017/tree/master/ABB/YuMi).
 
+## How does the REST API work?
+
+There are three set of global variable available on each arm of the robot.
+* `stName` string, define the name of the method to run
+* `bStart` boolean, define if the gesture should be started
+* `bRunning` boolean, define if a gesture is currently running
+
+To run a gesture you should set the movement to run, to do that, just hit the endpoint with a POST request http://[your IP Adress]/rw/rapid/symbol/data/RAPID/[THE ARM]/Remote/stName?action=set', with a form payload set to {"value":"[Gesture you want to run]"}
+
+Then you need to set the boolean variable to start in order to set the gesture, to do that just hit with a POST request http://[your IP Adress]/rw/rapid/symbol/data/RAPID/[THE ARM]/Remote/bStart?action=set', with a form payload set to {"value":"true"}
+
+To check if the gesture finished running you can hit the endpoint with a GET request : 
+ http://[your IP Adress]/rw/rapid/symbol/data/RAPID/[THE ARM]/Remote/bRunning?json=1',
+
 ## Preprogrammed gestures already available in the robot
 
 Gestures only available for the right arm:
