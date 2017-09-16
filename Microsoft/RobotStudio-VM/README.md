@@ -19,7 +19,7 @@ Follow this few steps to get activated:
 * Edit the file vcconf.xml and insert your current IP adress. use [This](https://whatismyipaddress.com/)
 * Copy the file to C:\Users\[Your User Name]]\AppData\Roaming\ABB Industrial IT\Robotics IT\RobVC 
 * Start RobotStudio again (the Station is saved in the recent tab)
-* from your local computer go to http://[IP adress of the VM]/rw, log in with credentials "Default User" / "Robotics" (without "), if you see a list of dots on the screen you are good to go! If you see a RAPI error come to see us on the booth
+* from your local computer go to http://[IP adress of the VM]/rw, log in with credentials "Default User" / "robotics" (without "), if you see a list of dots on the screen you are good to go! If you see a RAPI error come to see us on the booth
 
 
 **SHOULD YOU HAVE PROBLEMS, PLEASE FEEL FREE TO DROP BY THE BOOTH**
