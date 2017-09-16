@@ -153,7 +153,8 @@ function getEmotion() {
 }
 
 
-//function handling communication with the REST API and the robot
+//function handling communication with the REST API and the robot¨d
+//If you want to trigger a gesture defined on both hands you will have to trigger the arm endpoint in parralel at the same time or it will fail.
 function moveRobot(arm, action) {
     var request = require('request')
     var url = "http://[Your IP Adress]/rw";

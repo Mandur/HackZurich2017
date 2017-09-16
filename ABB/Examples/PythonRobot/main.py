@@ -1,47 +1,80 @@
 import requests
 from requests.auth import HTTPDigestAuth
 import urllib
+import time
+from threading import Thread
 
-# Thanks to Phaiax  for fixing this
+#Thanks to Phaiax for the code fixing  https://github.com/Phaiax/OhOnlyMusli/tree/master/pytest 
+
+url = '[Your IP Adress]/rw'
+auth = HTTPDigestAuth('Default User', 'robotics')
+
+session = requests.session()
+
+
+# Get authenticated
+r0 = session.get(url + '/rapid/symbol/data/RAPID/'+'T_ROB_R'+'/Remote/bStart?json=1',
+                   auth=auth)
+assert(r0.status_code == 200)
+
+
+def check(arm, variable):
+    r = session.get(url + '/rapid/symbol/data/RAPID/'+arm+'/Remote/'+variable+'?json=1')
+    assert(r.status_code == 200)
+    return r.json()['_embedded']['_state'][0]['value']
+
+def checkBool(arm, variable):
+    return True if check(arm, variable) == "TRUE" else False
+
+def setString(arm, variable, text):
+    payload={'value':'"'+text+'"'}
+    r = session.post(url + '/rapid/symbol/data/RAPID/'+arm+'/Remote/'+variable+'?action=set',
+                     data=payload)
+    print(r)
+    print(r.text)
+    assert(r.status_code == 204)
+    return r
+
+def setBool(arm, variable, state):
+    payload={'value': 'true' if state else 'false' }
+    r = session.post(url + '/rapid/symbol/data/RAPID/'+arm+'/Remote/'+variable+'?action=set',
+                     data=payload)
+    print(r)
+    print(r.text)
+    assert(r.status_code == 204)
+    return r
 
 def moveRobot(arm,action):
+    print("RUNNING:" + check(arm, 'bRunning'))
 
+    setString(arm, 'stName', action)
 
-    url = '[Your IP Adress]/rw'
-    auth = HTTPDigestAuth('Default User', 'robotics')
+    print("bStart:" + check(arm, 'bStart'))
 
-    session = requests.session()
+    setBool(arm, 'bStart', True);
 
-    r0 = session.get(url + '/rapid/symbol/data/RAPID/'+arm+'/Remote/bStart?json=1',
-                       auth=auth)
-    print(r0)
-    print(r0.text)
+    print("bStart:" + check(arm, 'bStart'))
+    time.sleep(0.5)
 
-    r02 = session.get(url + '/rapid/symbol/data/RAPID/'+arm+'/Remote/bRunning?json=1',
-                       )
-    print(r02)
-    print(r02.text)
+    running = checkBool(arm, 'bRunning')
+    while running:
+        running = checkBool(arm, 'bRunning')
+        print("RUNNING:" + str(running))
+        time.sleep(0.4)
 
-
-    payload={'value':'"'+action+'"'}
-    headers = {u'content-type': u'application/x-www-form-urlencoded'}
-    r1 = session.post(url + '/rapid/symbol/data/RAPID/'+arm+'/Remote/stName?action=set',
-                       data=payload,
-                       headers=headers)
-    print(r1)
-    print(r1.text)
-
-    r2 = session.post(url + '/rapid/symbol/data/RAPID/'+arm+'/Remote/bStart?action=set',
-                       data={'value':'true'},
-                       )
-    print(r2)
 
     return;
 
 
 
+# the trick seems to run both arms in parralel because of the
+# waitAsyncTask directive in the RAPID code
+
+class otherArm(Thread):
+    def run(self):
+        moveRobot('T_ROB_L','NoClue')
+
+
+other = otherArm()
+other.start()
 moveRobot('T_ROB_R','NoClue')
-
-
-
-
