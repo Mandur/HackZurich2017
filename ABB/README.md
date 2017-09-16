@@ -52,3 +52,27 @@ There are also complete examples for [UWP](https://github.com/Mandur/HackZurich2
 ## Programming new gestures on the real robot
 
 For programming the real robot see the [detailed instructions](https://github.com/Mandur/HackZurich2017/tree/master/ABB/YuMi).
+
+## Preprogrammed gestures already available in the robot
+
+Gestures only available for the right arm:
+* `Kiss`
+* `SayHello`
+* `SayNo`
+* `ShakingHands`
+* `IKillYou`
+
+Gestures for both arms:
+* `Home`
+* `Contempt`
+* `NoClue`
+* `HandsUp`
+* `Surprised`
+* `ToDiss`
+* `Anger`
+* `Excited`
+* `GiveMeAHug`
+* `GoAway`
+* `Happy`
+* `Powerful`
+* `Scared`
