@@ -2,12 +2,12 @@ import requests
 from requests.auth import HTTPDigestAuth
 import urllib
 
-# headers = {"Ocp-Apim-Subscription-Key": apiKey}
+# Thanks to Phaiax  for fixing this
 
 def moveRobot(arm,action):
-    # http://23.101.77.124/rw/rapid/symbol/data/RAPID/T_ROB_L/Remote/stName?action=set  value="NoClue"
 
-    url = 'http://23.101.77.124/rw'
+
+    url = '[Your IP Adress]/rw'
     auth = HTTPDigestAuth('Default User', 'robotics')
 
     session = requests.session()

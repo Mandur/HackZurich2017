@@ -156,7 +156,7 @@ function getEmotion() {
 //function handling communication with the REST API and the robot
 function moveRobot(arm, action) {
     var request = require('request')
-    var url = "[Robot IP Adress]/rw";
+    var url = "http://[Your IP Adress]/rw";
     if (arm.toLowerCase().indexOf("right") != -1) {
         arm = "T_ROB_R"
     } else if (arm.toLowerCase().indexOf("left") != -1) {
@@ -167,10 +167,11 @@ function moveRobot(arm, action) {
     }
 
     //request #1 to set the required move on the server
-    request.post(url + '/rapid/symbol/data/RAPID/' + arm + '/Remote/' + action + '?action=set',
+    request.post(url + '/rapid/symbol/data/RAPID/' + arm + '/Remote/stName?action=set',
+    { form: { value: '"'+action+'"' } },
         //request #2 to set the starting variable to true to start the motion
         function (error, response, body) {
-            request.post(url + '/rapid/symbol/data/RAPID/' + arm + '/Remote/start?action=set',
+            request.post(url + '/rapid/symbol/data/RAPID/' + arm + '/Remote/bStart?action=set',
                 { form: { value: 'true' } },
                 function (error, response, body) {
                     var boolean = false;
@@ -179,7 +180,5 @@ function moveRobot(arm, action) {
         }).auth('Default User', 'robotics', false);
 
 }
-
-
 
 
